@@ -16,3 +16,7 @@ Events from this Date on Wiki
 Giphy API render a button on each event
 
 Firebase - Favorite Entry Saved Option , containing all the relevant date.
+
+APIs : Wikipedia & Youtube
+
+Library: Boostrap, JQuery, Firebase, Moment, Validate.js
