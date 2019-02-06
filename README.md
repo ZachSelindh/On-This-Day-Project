@@ -1,6 +1,9 @@
 # Project-1-Group-6
 Project 1 for Group 6
 
+Project Ideas
+-------------
+=======
 Project Title : On This Day
 
 Team Members : Bill, Zach, Raymond and Sunny
