@@ -1,6 +1,13 @@
 /* Javascript File for On This Day project */
 
 window.onload = function() {
+  
+$("#day-input").datepicker({
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+    dateFormat: 'MM dd'
+});
 
 $("$search-button").on("click", function(){
 
