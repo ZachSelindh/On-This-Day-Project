@@ -9,7 +9,6 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" 
         crossorigin="anonymous"></script>
-  
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
         crossorigin="anonymous"></script>
@@ -19,23 +18,18 @@
     <script src="./assets/javascript/javascript.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
-  
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
-  
     <meta charset = "UTF-8">
     <link rel="icon" href="assets/images/calendar-favicon.png">
-  
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-   
-  <title>Project 1</title>
+    <title>Project 1</title>
     
 </head>
   
 <body>
-    <!-- navbar -->
-    <header>
+
+     <!-- navbar -->
+     <header>
         <div class="collapse bg-dark" id="navbarHeader">
             <div class="container">
                 <div class="row">
@@ -68,9 +62,8 @@
             </div>
         </div>
     </header>
-        
+
     <div class="container">
-        <!-- Jumbotron title -->
         <div class="row">
             <div class="col-12">
                 <div class="jumbotron float-center">
@@ -84,75 +77,65 @@
                 <div class="col-12 col-md-4">
                     <div class="card">
                         <div class="card-body">
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Dates
-                                    </button>
-                                    <div id="list-date" class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dates
+                                </button>
+                                <div id="list-date" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        
                                 </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div class="card">
-                    <div class="card-header">
-                        Favorites
-                    </div>
-                    <div class="card-body">
-                        <input type="button" id="today" value="Today"></input>
-                        <br>
-                        <div id="add-day">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- API cards -->
-            <div class="col-12 col-md-8">
-                <!-- Wikipedia card -->
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header">
-                                From Wikipedia
                             </div>
-                            <div class="card-body">
-                                <div id="wiki-elements">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card">
+                        <div class="card-header">
+                            Favorites
+                        </div>
+                        <div class="card-body">
+                            <input type="button" id="today" value="Today">
+                            <br>
+                            <div id="add-day">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API cards -->
+                <div class="col-12 col-md-8">
+                    <!-- Wikipedia card -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    From Wikipedia
+                                </div>
+                                <div class="card-body">
+                                    <div class="wikis"></div>
+                                    <div id="day-view"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Youtube card -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    From Youtube
+                                </div>
+                                <div class="card-body">
                                     Placeholder
                                 </div>
-                                <div id="day-view"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <!-- Youtube card -->
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header">
-                                From Youtube
-                            </div>
-                            <div class="card-body">
-                             <div id="youtube-elements"></div>
-                                Placeholder
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            </div>
         </div>
-    </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-    <script src="./assets/javascript/javascript.js"></script>
-
 
 
  
