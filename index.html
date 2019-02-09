@@ -1,143 +1,137 @@
 <!doctype HTML>
 <html>
 <head>
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
+
+    <!-- JQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
-    <script 
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" 
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
-        crossorigin="anonymous"></script>
+    <!-- AJAX CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" 
+    crossorigin="anonymous"></script>
+    <!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
+    crossorigin="anonymous"></script>
+    <!-- JQuery UI CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <!-- Javascript -->
+<script src="./assets/javascript/javascript.js"></script>
+    <!-- Bootstrap CDN -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- CSS -->
+<link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
+     <!-- Favicon -->
+<link rel="icon" href="assets/images/calendar-favicon.png">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
-
-    <script src="./assets/javascript/javascript.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
-    <meta charset = "UTF-8">
-    <link rel="icon" href="assets/images/calendar-favicon.png">
+<meta charset = "UTF-8">
+    
     <title>Project 1</title>
     
 </head>
   
 <body>
+    <!-- Navbar -->
+ <header>
+  <div class="collapse bg-dark" id="navbarHeader">
+   <div class="container">
+    <div class="row">
+     <div class="col-sm-8 col-md-7 py-4">
+      <h4 class="text-white">Group 6</h4>
+      <p class="text-muted">A webpage built to find interesting information for a given day. Built for the UT Coding Bootcamp, 2019.</p>
+      <p class="text-muted">Follow us by clicking the links!</p>
+     </div>
+    <div class="col-sm-4 offset-md-1 py-4">
+    <h4 class="text-white">Contacts</h4>
+     <ul class="list-unstyled">
+      <li><a href="https://github.com/rayfwu" target="_blank" class="text-white">Raymond Fwu</a></li>
+      <li><a href="https://w-j-gannon.github.io/Basic-Portfolio/" target="_blank" class="text-white">William Gannon</a></li>
+      <li><a href="https://sunny-liao.github.io/Bootstrap-Portfolio/" target="_blank"class="text-white">Sunny Liao</a></li>
+      <li><a href="https://zachselindh.github.io/" target="_blank" class="text-white">Zach Selindh</a></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="navbar navbar-dark bg-dark box-shadow">
+  <div class="container d-flex justify-content-between">
+   <a href="#" class="navbar-brand d-flex align-items-center">
+    <i class="fas fa-globe"></i>
+     <strong> &nbsp On This Day</strong>
+   </a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+   </button>
+  </div> 
+ </div>
+ </header>
 
-     <!-- navbar -->
-     <header>
-        <div class="collapse bg-dark" id="navbarHeader">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-md-7 py-4">
-                        <h4 class="text-white">Group 6</h4>
-                        <p class="text-muted">A webpage built to find interesting information for a given day. Built for the UT Coding Bootcamp, 2019.</p>
-                        <p class="text-muted">Follow us by clicking the links!</p>
-                    </div>
-                    <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 class="text-white">Contacts</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="https://github.com/rayfwu" target="_blank" class="text-white">Raymond Fwu</a></li>
-                            <li><a href="https://w-j-gannon.github.io/Basic-Portfolio/" target="_blank" class="text-white">William Gannon</a></li>
-                            <li><a href="https://sunny-liao.github.io/Bootstrap-Portfolio/" target="_blank"class="text-white">Sunny Liao</a></li>
-                            <li><a href="https://zachselindh.github.io/" target="_blank" class="text-white">Zach Selindh</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="navbar navbar-dark bg-dark box-shadow">
-            <div class="container d-flex justify-content-between">
-            <a href="#" class="navbar-brand d-flex align-items-center">
-                <i class="fas fa-globe"></i>
-                <strong> &nbsp On This Day</strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="jumbotron float-center">
-                    <h1 class="display-4 text-center">On this day</h1>
-                </div>
-            </div>
-        </div>
-            <!-- Content -->
-            <div class="row">
-                <!-- Search bar and favorites -->
-                <div class="col-12 col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dates
-                                </button>
-                                <div id="list-date" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="card">
-                        <div class="card-header">
-                            Favorites
-                        </div>
-                        <div class="card-body">
-                            <input type="button" id="today" value="Today">
-                            <br>
-                            <div id="add-day">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- API cards -->
-                <div class="col-12 col-md-8">
-                    <!-- Wikipedia card -->
-                    <div class="row">
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-header">
-                                    From Wikipedia
-                                </div>
-                                <div class="card-body">
-                                    <div class="wikis"></div>
-                                    <div id="day-view"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <!-- Youtube card -->
-                    <div class="row">
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-header">
-                                    From Youtube
-                                </div>
-                                <div class="card-body">
-                                    Placeholder
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-
+ <div class="container"> 
+  <div class="row">
+   <div class="col-12">
+    <div class="jumbotron float-center">
+     <h1 class="display-4 text-center">On this day</h1>
+    </div>
+   </div>
+  </div>
+    <!-- Content -->
+ <div class="row">
+    <!-- Search bar and favorites -->
+ <div class="col-sm-12 col-md-4">
+  <div class="card">
+   <div class="card-body">
+    <div class="dropdown">
+     <button class="btn btn-secondary dropdown-toggle" type="button" 
+        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select A Date
+     </button>
+     <!-- Date Dropdown element -->
+     <div id="list-date" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+     </div>
+     <br>
+     <br>
+     <button class="btn btn-secondary" id="search-button" type="button" value="Search">
+      Search
+     </button>
+    </div>
+   </div>
+  </div>
+  <br>
+ </div>
+    <!-- API cards -->
+ <div class="col-sm-12 col-md-8">
+    <!-- Wikipedia card -->
+  <div class="row">
+   <div class="col">
+    <div class="card">
+     <div class="card-header">
+      From Wikipedia
+     </div>
+    <div class="card-body">
+     <div class="project-display" id="wiki-display"></div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <br>
+    <!-- Youtube card -->
+ <div class="row">
+  <div class="col">
+   <div class="card">
+    <div class="card-header">
+     From Youtube
+    </div>
+    <div class="card-body">
+     <div class="project-display" id="youtube-display"></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+</div>
+</div>
  
 </body>
 
