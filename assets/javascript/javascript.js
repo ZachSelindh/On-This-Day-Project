@@ -2,12 +2,35 @@
 
 $(document).ready(function() {
 
-  $("#day-input").datepicker({
-    changeMonth: true,
-    changeYear: true,
-    showButtonPanel: true,
-    dateFormat: 'MM dd'
-});
+  // $("#day-input").datepicker({
+  //   changeMonth: true,
+  //   changeYear: true,
+  //   showButtonPanel: true,
+  //   dateFormat: 'MM dd'
+  // });
+
+  var listItems = [ 
+    'february-14', 
+    'february-20', 
+    'february-29', 
+    'march-3',
+    'april-1',
+    'june-21',
+    'july15',
+    'nov-20',
+    'december-7'
+  ];
+
+  for (let x in listItems) {
+    var anItem = "<div id='item-" + x + "' class='dropdown-item' data-json='assets/json/" + listItems[x] + ".json'>" + listItems[x] + "</div>";
+    $("#list-date").append(anItem);
+    $("#item-" + x).click( function() {
+      // --------------------------------------------------------------------
+      // Whenever you click an option you will get the path the the json file
+      // --------------------------------------------------------------------
+      console.log($("#item-" + x).data("json"));
+    });
+  }
 /* Javascript File for On This Day project */
 
 

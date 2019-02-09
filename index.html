@@ -42,8 +42,12 @@
                 <div class="col-12 col-md-4">
                     <div class="card">
                         <div class="card-body">
-                                <input type="text" id="day-input" readonly="readonly" class="hasDatepicker">
-                                <input id="add-day" type="submit" value="Day Search">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dates
+                                    </button>
+                                    <div id="list-date" class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
+                                </div>
                         </div>
                     </div>
                     <br>
