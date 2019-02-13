@@ -1,10 +1,39 @@
+$(document).ready(function() {
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
+  var nasaURL = "https://api.nasa.gov/planetary/apod?api_key=kgJtPslniAUmqh8Q2v2AYwNqg3hhNTyijqwre8oD";
 
-$(document).ready(function() {
+  $.ajax({
+    url: nasaURL,
+    success: function(result){
+      console.log(result);
+    if("copyright" in result) {
+      $("#copyright").text("Image Credits: " + result.copyright);
+    }
+    else {
+      $("#copyright").text("Image Credits: " + "Public Domain");
+    }
+    
+    if(result.media_type == "video") {
+      $("#apod_img_id").css("display", "none"); 
+      $("#apod_vid_id").attr("src", result.url);
+    }
+    else {
+      $("#apod_vid_id").css("display", "none"); 
+      $("#apod_img_id").attr("src", result.url);
+    }
+    document.body.style.backgroundImage = "url('" + result.url + "')";
+  }
+  });
+  
+/* Javascript File for On This Day project */
 
+
+$(document).on("click", "#add-day", function(){
+
+    var searchTerm = $("#day-input").val();
   // initializes the settings for the datepicker
   $("#day-input").datepicker({
     changeMonth: true,
@@ -97,5 +126,7 @@ $(document).on("click", "#search-button", function(){
 
 });
 
+
+});
 
 });
