@@ -23,6 +23,7 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
+<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
      <!-- Favicon -->
 <link rel="icon" href="assets/images/calendar-favicon.png">
 
@@ -82,20 +83,9 @@
  <div class="col-sm-12 col-md-4">
   <div class="card">
    <div class="card-body">
-    <div class="dropdown">
-     <button class="btn btn-secondary dropdown-toggle" type="button" 
-        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select A Date
-     </button>
-     <!-- Date Dropdown element -->
-     <div id="list-date" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-     </div>
-     <br>
-     <br>
-     <button class="btn btn-secondary" id="search-button" type="button" value="Search">
-      Search
-     </button>
-    </div>
+       <!-- This is where the user inputs a date -->
+        <p>Enter Date: <input class="border" type="text" id="day-input"></p>
+        <button class="btn btn-secondary" id="search-button" type="button" value="Search">Search</button>
    </div>
   </div>
   <br>
