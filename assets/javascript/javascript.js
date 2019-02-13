@@ -70,7 +70,7 @@ $(document).on("click", "#search-button", function(){
 
   // takes the input from the datepicker and makes an api call to get the events
   var date = $("#day-input").val();
-  var wikiUrl = "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=1&page=" 
+  var wikiUrl = "https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=1&page=" 
                 + date 
                 + "&callback=?";
 
