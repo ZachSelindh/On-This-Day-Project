@@ -2,71 +2,88 @@
 
 $(document).ready(function() {
 
-// array of objects that contain a viewer friendly date and a filename date
+  // initializes the settings for the datepicker
+  $("#day-input").datepicker({
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+    dateFormat: 'MM d'
+  });
 
-var listItems = [ {display : 'February 14th', filename : 'february-14'},
-                  {display : 'February 20th', filename :'february-20'},
-                  {display : 'February 29th', filename :'february-29'}, 
-                  {display : 'March 3rd', filename : 'march-3'},
-                  {display : 'April 1st', filename : 'april-1'},
-                  {display : 'June 21st', filename : 'june-21'},
-                  {display : 'July 15th', filename : 'july15'},
-                  {display : 'November 20th', filename : 'nov-20'},
-                  {display : 'December 7th', filename :'december-7'}];
-
-for (let x in listItems) {
-    var anItem = "<div id='item-" + x + "' class='dropdown-item' data-json='assets/json/" + listItems[x].filename + ".json'>" + listItems[x].display + "</div>";
-    $("#list-date").append(anItem);
-    $("#item-" + x).click( function() {
-        console.log($("#item-" + x).data("json"));
-    });
-}
-
-  // $("#day-input").datepicker({
-  //   changeMonth: true,
-  //   changeYear: true,
-  //   showButtonPanel: true,
-  //   dateFormat: 'MM dd'
-  // });
 /* Javascript File for On This Day project */
 
+$(document).on("click", "#search-button", function(){
 
-$(document).on("click", "#add-day", function(){
+  // takes the input from the datepicker and makes an api call to get the events
+  var date = $("#day-input").val();
+  var wikiUrl = "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=1&page=" 
+                + date 
+                + "&callback=?";
 
-    var searchTerm = $("#day-input").val();
+	$.ajax({
+	    type: "GET",
+	    url: wikiUrl,
+	    contentType: "application/json; charset=utf-8",
+	    async: false,
+	    dataType: "json",
+	    success: function (data, textStatus, jqXHR) {
+	    
+		var markup = data.parse.text["*"];
+		var i = $('<div></div>').html(markup);
+		
+		// remove links as they will not work
+		i.find('a').each(function() { $(this).replaceWith($(this).html()); });
+		
+		// remove any references
+		i.find('sup').remove();
+		
+		// remove cite error
+		i.find('.mw-ext-cite-error').remove();
 
-    var youTubeAPIKey = "AIzaSyDcWVbgXVAksO-kg0P9f7zjV-lkBcjNEdU";
+    // initial array to hold the events
+		var events = [];
+      $(i).find('li').each( function() { events.push($(this).text()); });
+      $("#wiki-display").text(events[0]);
+      console.log(events[0]);
+    },
+    error: function (errorMessage) {
+    }
+	});   
 
-    var youTubeAPIURL = 
-        "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + searchTerm + 
-        "&type=video&videoCaption=closedCaption&key=" +
-        youTubeAPIKey;
+    // var searchTerm = $("#day-input").val();
 
-    var historyWikiURL = "https://history.muffinlabs.com/date/" + searchTerm;
+    // var youTubeAPIKey = "AIzaSyDcWVbgXVAksO-kg0P9f7zjV-lkBcjNEdU";
 
-    var historyTest = $.getJSON(historyWikiURL, function(){});
+    // var youTubeAPIURL = 
+    //     "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + searchTerm + 
+    //     "&type=video&videoCaption=closedCaption&key=" +
+    //     youTubeAPIKey;
 
-    console.log(historyTest);
+    // var historyWikiURL = "https://history.muffinlabs.com/date/" + searchTerm;
+
+    // var historyTest = $.getJSON(historyWikiURL, function(){});
+
+    // console.log(historyTest);
     
-    console.log(historyWikiURL);
+    // console.log(historyWikiURL);
 
-    console.log(youTubeAPIURL);
+    // console.log(youTubeAPIURL);
 
-    $.ajax({ // First request, calls Wikipeda API
-        url: historyWikiURL,
-        method: "GET"
-      }).done(function(responseHist) {
+    // $.ajax({ // First request, calls Wikipeda API
+    //     url: historyWikiURL,
+    //     method: "GET"
+    //   }).done(function(responseHist) {
           
             
             
-      }),
-      $.ajax({ // Second request, calls YouTube API
-        url: youTubeAPIURL,
-        method: "GET"
-      }).done(function(responseTube) {
+    //   }),
+    //   $.ajax({ // Second request, calls YouTube API
+    //     url: youTubeAPIURL,
+    //     method: "GET"
+    //   }).done(function(responseTube) {
             
             
-      });
+    //   });
 
 });
 
