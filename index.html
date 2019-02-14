@@ -68,34 +68,31 @@
   </div> 
  </div>
  </header>
-
+<!-- Jumbotron and search bar -->
  <div class="container"> 
-  <div class="row">
-   <div class="col-12">
+  <div class="row justify-content-center">
+   <div class="col-12 col-md-8">
+    <!-- jumbotron -->
     <div class="jumbotron float-center">
      <h1 class="display-4 text-center">On this day</h1>
-    </div>
+     <br>
+     <!-- search bar -->
+     <div class="card text-center">
+        <div class="card-body">
+            <!-- This is where the user inputs a date -->
+            <input class="border" type="text" id="datepicker" autocomplete="off" placeholder="Pick a date">
+            <button class="btn btn-secondary" id="search-button" type="button" value="Search">Search</button>
+        </div>
+     </div>
+    </div> 
    </div>
   </div>
-    <!-- Content -->
- <div class="row">
-    <!-- Search bar and favorites -->
- <div class="col-sm-12 col-md-4">
-  <div class="card">
-   <div class="card-body">
-       <!-- This is where the user inputs a date -->
-        <p>Enter Date: <input class="border" type="text" id="datepicker"></p>
-        <button class="btn btn-secondary" id="search-button" type="button" value="Search">Search</button>
-   </div>
-  </div>
-  <br>
- </div>
-    <!-- API cards -->
- <div class="col-sm-12 col-md-8">
+ <!-- Content -->
+ <div class="row justify-content-center content-cards">
+  <!-- API cards -->
+  <div class="col-12 col-lg-6">
     <!-- Wikipedia card -->
-  <div class="row">
-   <div class="col">
-    <div class="card">
+    <div class="card mb-4">
      <div class="card-header">
       From Wikipedia
      </div>
@@ -104,12 +101,10 @@
     </div>
    </div>
   </div>
- </div>
  <br>
     <!-- Youtube card -->
- <div class="row">
-  <div class="col">
-   <div class="card">
+  <div class="col-12 col-lg-6">
+   <div class="card mb-4">
     <div class="card-header">
      From Youtube
     </div>
@@ -117,7 +112,6 @@
      <div class="project-display" id="youtube-display"></div>
     </div>
    </div>
-  </div>
  </div>
 </div>
 </div>
