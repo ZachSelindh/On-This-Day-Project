@@ -102,6 +102,7 @@ $(document).ready(function() {
     var titleEmbed = responseYT.items[0].snippet.title;
     var srcYT = "https://www.youtube.com/embed/" + videoIdEmbed;
     $("#youtube-embed").attr("src", srcYT);
+    $("#youtube-title").text(titleEmbed);
     })
   });
   
