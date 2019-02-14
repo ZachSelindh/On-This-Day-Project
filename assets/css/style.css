@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Secular+One');
 
-.jumbotron {
+.jumbotron, .card-header {
     font-family: 'Alfa Slab One', cursive;
 }
 
@@ -19,4 +19,16 @@ body {
     background-color: transparent;
 }
 
+.card-header {
+    background-color:lightgray;
+}
 
+.project-display {
+    background-color: white;
+}
+
+#wiki-display {
+    font-family: 'Alfa Slab One', cursive;
+    max-height: 20em;
+    overflow: scroll;
+}
