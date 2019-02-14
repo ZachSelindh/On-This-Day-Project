@@ -29,6 +29,10 @@ body {
 
 #wiki-display {
     font-family: 'Alfa Slab One', cursive;
-    max-height: 20em;
+    max-height: 22em;
     overflow: scroll;
+}
+
+#youtube-embed {
+    margin-left: 8%;
 }

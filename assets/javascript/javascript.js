@@ -97,8 +97,11 @@ $(document).ready(function() {
       url: youTubeAPIURL,
       method: "GET"
   }).done(function(responseYT) {
-      console.log(responseYT);
-
+    console.log(responseYT);
+    var videoIdEmbed = responseYT.items[0].id.videoId;
+    var titleEmbed = responseYT.items[0].snippet.title;
+    var srcYT = "https://www.youtube.com/embed/" + videoIdEmbed;
+    $("#youtube-embed").attr("src", srcYT);
     })
   });
   
