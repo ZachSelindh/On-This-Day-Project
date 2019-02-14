@@ -1,63 +1,45 @@
 $(document).ready(function() {
 
-  var nasaURL = "https://api.nasa.gov/planetary/apod?api_key=kgJtPslniAUmqh8Q2v2AYwNqg3hhNTyijqwre8oD";
+$(".content-cards").hide();
 
-  $.ajax({
-    url: nasaURL,
-    success: function(result){
-      console.log(result);
-    if("copyright" in result) {
-      $("#copyright").text("Image Credits: " + result.copyright);
-    }
-    else {
-      $("#copyright").text("Image Credits: " + "Public Domain");
-    }
-    
-    if(result.media_type == "video") {
-      $("#apod_img_id").css("display", "none"); 
-      $("#apod_vid_id").attr("src", result.url);
-    }
-    else {
-      $("#apod_vid_id").css("display", "none"); 
-      $("#apod_img_id").attr("src", result.url);
-    }
-    document.body.style.backgroundImage = "url('" + result.url + "')";
+  /* Code to add the NASA image to the background */
+var nasaURL = "https://api.nasa.gov/planetary/apod?api_key=kgJtPslniAUmqh8Q2v2AYwNqg3hhNTyijqwre8oD";
+
+$.ajax({
+  url: nasaURL,
+  success: function(result){
+    console.log(result);
+  if("copyright" in result) {
+    $("#copyright").text("Image Credits: " + result.copyright);
+  }
+  else {
+    $("#copyright").text("Image Credits: " + "Public Domain");
+  }
+  if(result.media_type == "video") {
+    $("#apod_img_id").css("display", "none"); 
+    $("#apod_vid_id").attr("src", result.url);
+  }
+  else {
+    $("#apod_vid_id").css("display", "none"); 
+    $("#apod_img_id").attr("src", result.url);
+  }
+  document.body.style.backgroundImage = "url('" + result.url + "')";
   }
   });
   
+  /* Datepicker activation */
+$( function() {
+  $("#datepicker").datepicker();
+} );
 
-var listItems = [   'february-14', 
-                  'february-20', 
-                  'february-29', 
-                  'march-3',
-                  'april-1',
-                  'june-21',
-                  'july15',
-                  'nov-20',
-                  'december-7'];
-
-for (let x in listItems) {
-    var anItem = "<div id='item-" + x + "' class='dropdown-item' data-json='assets/json/" + listItems[x] + ".json'>" + listItems[x] + "</div>";
-    $("#list-date").append(anItem);
-    $("#item-" + x).click( function() {
-        console.log($("#item-" + x).data("json"));
-    });
+  /* RNG for calling random events from Wiki API */
+function randomNum(inputNum) {
+  num = [Math.floor(Math.random() * inputNum)];
+  return num;
 }
 
-  // $("#day-input").datepicker({
-  //   changeMonth: true,
-  //   changeYear: true,
-  //   showButtonPanel: true,
-  //   dateFormat: 'MM dd'
-  // });
-/* Javascript File for On This Day project */
-
-
-$(document).on("click", "#add-day", function(){
-
-    var searchTerm = $("#day-input").val();
   // initializes the settings for the datepicker
-  $("#day-input").datepicker({
+  $("#datepicker").datepicker({
     changeMonth: true,
     changeYear: true,
     showButtonPanel: true,
@@ -68,8 +50,14 @@ $(document).on("click", "#add-day", function(){
 
 $(document).on("click", "#search-button", function(){
 
+  $("#wiki-display").empty();
+
+  var searchTerm = $("#datepicker").val();
+
+  console.log(searchTerm);
+
   // takes the input from the datepicker and makes an api call to get the events
-  var date = $("#day-input").val();
+  var date = $("#datepicker").val();
   var wikiUrl = "https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=1&page=" 
                 + date 
                 + "&callback=?";
@@ -84,21 +72,24 @@ $(document).on("click", "#search-button", function(){
 	    
 		var markup = data.parse.text["*"];
 		var i = $('<div></div>').html(markup);
-		
-		// remove links as they will not work
-		i.find('a').each(function() { $(this).replaceWith($(this).html()); });
-		
-		// remove any references
-		i.find('sup').remove();
-		
-		// remove cite error
-		i.find('.mw-ext-cite-error').remove();
+    
+     /* Remove extraneous data from JSON information */
+		i.find('a').each(function() { $(this).replaceWith($(this).html()); }); // Links
+		i.find('sup').remove(); // References
+		i.find('.mw-ext-cite-error').remove(); // Cite error
 
-    // initial array to hold the events
+    // Initial array to hold the events
 		var events = [];
       $(i).find('li').each( function() { events.push($(this).text()); });
-      $("#wiki-display").text(events[0]);
-      console.log(events[0]);
+      console.log("length = " + events.length)
+        for (x=0; x < 10; x++) { 
+          y = randomNum(events.length - 1);
+          $("#wiki-display").append(events[y] + "<br><br>");
+          console.log(events[x]);
+          events.sort();
+        }
+
+      $(".content-cards").fadeIn(300);
     },
     error: function (errorMessage) {
     }
@@ -138,8 +129,6 @@ $(document).on("click", "#search-button", function(){
             
             
     //   });
-
-});
 
 
 });
