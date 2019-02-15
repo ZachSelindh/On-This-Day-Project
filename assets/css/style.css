@@ -12,6 +12,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-color: black;
 }
 
 .jumbotron {
@@ -28,11 +29,14 @@ body {
 }
 
 #wiki-display {
-    font-family: 'Alfa Slab One', cursive;
     max-height: 22em;
     overflow: scroll;
 }
 
+#wiki-display, #youtube-title {
+    font-family: 'Open Sans', sans-serif;
+}
+
 #youtube-embed {
-    margin-left: 8%;
+    margin: 0 auto;
 }
